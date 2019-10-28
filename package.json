@@ -1,9 +1,9 @@
 {
-  "name": "zkweb",
+  "name": "AI-Machine-learning-Robot(xst)",
   "version": "1.0.0",
   "private": true,
   "description": "A Mpvue project",
-  "author": "zhongku <zkweb@5ug.com>",
+  "author": "xst.. ",
   "scripts": {
     "serve": "npm run dev:h5",
     "5ug": "npm run dev:h5",
