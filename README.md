@@ -4,7 +4,7 @@
  * @Author: 薛松田
  * @Date: 2019-10-28 10:13:50
  * @LastEditors: 薛松田
- * @LastEditTime: 2019-10-28 10:23:22
+ * @LastEditTime: 2019-10-28 13:13:35
  -->
 
 
@@ -21,6 +21,7 @@
 ## Build Setup
 
 ```bash
+
 # install dependencies
 npm install
 
