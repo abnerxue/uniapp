@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 2.0.1.003
+ * @Author: 薛松田
+ * @Date: 2019-10-28 10:13:54
+ * @LastEditors: 薛松田
+ * @LastEditTime: 2019-10-28 15:54:22
+ */
 import Vue from 'vue'
 import store from '@/service/store/index'
 import App from './App'

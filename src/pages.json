@@ -1,8 +1,17 @@
 {
   "pages": [{
-      "path": "pages/default",
+      /*  "path": "pages/default",
       "style": {
         "navigationBarTitleText": "文房四宝",
+        "enablePullDownRefresh": false,
+        "app-plus": {
+          "titleNView": false
+        }
+      }
+    }, */
+      "path": "pages/robot/robot",
+      "style": {
+        "navigationBarTitleText": "人工智能",
         "enablePullDownRefresh": false,
         "app-plus": {
           "titleNView": false
