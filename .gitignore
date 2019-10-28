@@ -49,7 +49,7 @@ local.properties
 .idea/gradle.xml
 .idea/misc.xml
 *.iml
-src/service/config.js
+# src/service/config.js
 
-/src/service/config.js
-src/service/config.js
+# /src/service/config.js
+# src/service/config.js
