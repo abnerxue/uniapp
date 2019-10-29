@@ -2,14 +2,14 @@
   "pages": [{
       /*  "path": "pages/default",
       "style": {
-        "navigationBarTitleText": "常孝天下人工智能机器人",
+        "navigationBarTitleText": "文房四宝",
         "enablePullDownRefresh": false,
         "app-plus": {
           "titleNView": false
         }
       }
     }, */
-      "path": "pages/robot/robottest",
+      "path": "pages/robot/index",
       "style": {
         "navigationBarTitleText": "人工智能",
         "enablePullDownRefresh": false,
@@ -19,17 +19,98 @@
       }
     },
     {
-      "path": "pages/robot/robottest",
+      "path": "pages/robot/index",
       "style": {
         "onReachBottomDistance": 20,
         "enablePullDownRefresh": false
       }
     },
     {
-      "path": "pages/robot/test1234",
+      "path": "pages/robot/divination/drawLots",
       "style": {
         "onReachBottomDistance": 20,
-        "enablePullDownRefresh": false
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/gyqq",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/gyqq1",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/solution",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/solution1",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/explain",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/aspect1",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/aspectExplain",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/guide",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/guide1",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/robot/divination/guideBuy",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false,
+        "navigationStyle":"custom"
       }
     },
     {
@@ -307,7 +388,7 @@
     }
   ],
   "globalStyle": {
-    "navigationBarTitleText": "常孝天下人工智能机器人",
+    "navigationBarTitleText": "文房四宝",
     "navigationBarBackgroundColor": "#c81432",
     "backgroundColor": "#F8F8F8"
   },

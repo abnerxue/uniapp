@@ -1,0 +1,102 @@
+<!--
+ * 梁嘉琪
+ * 8:35:24
+ 解签说明页面
+ -->
+<template>
+  <div class="explain">
+    <p>签是问事的，请问你求什么?<br />问一件事求一次签，心诚则灵。</p>
+    <div class="buttonBox">
+      <p v-on:click="backIndex()"></p>
+      <p v-on:click="goback()"></p>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        count: '', // 倒计时
+        timer: null // 延时器
+      }
+    },
+    mounted () {
+      this.goNext()
+    },
+    methods: {
+      goNext () {
+        const TIME_COUNT = 10
+        if (!this.timer) {
+          this.count = TIME_COUNT
+          this.show = false
+          this.timer = setInterval(() => {
+            if (this.count > 0 && this.count <= TIME_COUNT) {
+              this.count--
+            } else {
+              this.show = true
+              clearInterval(this.timer)
+              this.timer = null
+              this.$router.push('/pages/robot/divination/aspect1')
+            }
+          }, 1000)
+        }
+      },
+      backIndex () { // 放回主页
+        this.$router.push('/pages/robot/index')
+      },
+      goback () { // 返回上一页
+        this.$router.push('/pages/robot/divination/drawLots')
+      }
+    },
+    destroyed () {
+      clearInterval(this.timer)
+    }
+  }
+</script>
+
+<style scoped>
+  .explain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../../static/img/explainbg.jpg) no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 3rem;
+    width: 100%;
+  }
+  .explain > p {
+    color: #f44;
+    font-size: 1rem;
+    font-weight: 900;
+    display: inline-block;
+    opacity: 0.9;
+    padding: 0.4rem 0.4rem;
+    background-color: white;
+  }
+  .buttonBox {
+    width: 80%;
+    position: absolute;
+    left: 1.8rem;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .buttonBox p {
+    width: 3rem;
+    height: 1.1rem;
+    color: white;
+    background: url(../../../static/img/z2.png) no-repeat;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 1rem;
+    font-size: 0.5rem;
+  }
+  .buttonBox p:nth-child(2) {
+    background: url(../../../static/img/z1.png) no-repeat;
+  }
+</style>
