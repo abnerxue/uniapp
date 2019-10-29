@@ -22,7 +22,7 @@
       <p v-on:click="cl()"></p>
       <p v-on:click="ks()"></p>
       <p v-on:click="sw()"></p>
-    </div>   
+    </div>
   </div>
 </template>
 
@@ -31,7 +31,7 @@
     data () {
       return {
         count: '', // 倒计时
-        sideList: ['事业', '姻缘', '失物', '远行', '财利', '考试', '健康', '房地', '诉讼']
+        sideList: ['事业', '姻缘', '诉讼', '远行', '财利', '考试', '健康', '房地', '失物']
       }
     },
     mounted () {
