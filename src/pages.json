@@ -2,7 +2,7 @@
   "pages": [{
       /*  "path": "pages/default",
       "style": {
-        "navigationBarTitleText": "文房四宝",
+        "navigationBarTitleText": "常孝天下人工智能机器人",
         "enablePullDownRefresh": false,
         "app-plus": {
           "titleNView": false
@@ -307,7 +307,7 @@
     }
   ],
   "globalStyle": {
-    "navigationBarTitleText": "文房四宝",
+    "navigationBarTitleText": "常孝天下人工智能机器人",
     "navigationBarBackgroundColor": "#c81432",
     "backgroundColor": "#F8F8F8"
   },

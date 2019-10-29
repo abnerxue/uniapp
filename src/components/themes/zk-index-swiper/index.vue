@@ -67,7 +67,7 @@
         searchModel: '',
         liksT: [
           {
-            name: '文房四宝'
+            name: '常孝天下人工智能机器人'
           },
           {
             name: '茅台'
