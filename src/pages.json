@@ -9,13 +9,34 @@
         }
       }
     }, */
-      "path": "pages/robot/robot",
+      "path": "pages/robot/robottest",
       "style": {
         "navigationBarTitleText": "人工智能",
         "enablePullDownRefresh": false,
         "app-plus": {
           "titleNView": false
         }
+      }
+    },
+    {
+      "path": "pages/robot/robottest",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/robot/test1234",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/index",
+      "style": {
+        "onReachBottomDistance": 20,
+        "enablePullDownRefresh": false
       }
     },
     {
