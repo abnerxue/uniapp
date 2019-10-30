@@ -41,40 +41,13 @@
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
   .box video {
     width: 100%;
     height: 100%;
   }
-  .start {
-    position: absolute;
-    width: 5rem;
-    height: 1.5rem;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    background: rgb(103, 185, 240);
-    text-align: center;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: white;
-  }
-  .buttonBox {
-    width: 80%;
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-  }
-  .buttonBox p {
-    width: 3rem;
-    height: 1.1rem;
-    color: white;
-    background: url(../../../static/img/z2.png) no-repeat;
-    border-radius: 5px;
-    text-align: center;
-    line-height: 1rem;
-    font-size: 0.5rem;
+  ::-webkit-media-controls {
+    display: none !important;
   }
 </style>
