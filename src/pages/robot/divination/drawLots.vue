@@ -6,7 +6,8 @@
 <template>
   <div class="drawLots">
     <div class="box">
-      <video src="../../../static/img/video.mp4" autoplay loop v-on:click="startDraw()"></video>
+      <embed src="../../../static/img/video.gif" autoplay loop v-on:click="startDraw()" />
+      <!-- <video src="../../../static/img/video.gif" autoplay loop v-on:click="startDraw()"></video> -->
     </div>
     <!-- <p class="start" v-on:click="startDraw()">开始抽签</p>
     <div class="buttonBox">
@@ -43,7 +44,7 @@
     height: 100%;
     overflow: hidden;
   }
-  .box video {
+  .box embed {
     width: 100%;
     height: 100%;
   }
