@@ -26,7 +26,8 @@
         show: true,
         show1: false,
         number: 19,
-        timer1: null
+        timer1: null,
+        id: null
       }
     },
     mounted () {
@@ -37,12 +38,12 @@
       }, 5000)
 
       this.goNext()
-      // this.getDate()
+      this.getDate()
     },
     methods: {
       getDate () {
         var vm = this;
-        this.$api.httpGet ('findLabel', '').then(function(res){
+        this.$api.httpGet('findLabel', '').then(function (res) {
           vm.ji = res.label.label_no;
           vm.id = res.label.id;
         });
@@ -57,7 +58,7 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'solution', params: { id: this.id} })
+              this.$router.push({ path: 'solution', params: { id: this.id } })
             }
           }, 3000)
         }

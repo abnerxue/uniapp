@@ -7,8 +7,8 @@
   <div class="guideBuy">
     <div class="box">
       <p>{{word}}</p>
+      <span></span>
     </div>
-    <span></span>
     <div class="buttonBox">
       <p v-on:click="backIndex()"></p>
       <p v-on:click="goback()"></p>
@@ -32,7 +32,7 @@
     methods: {
       getDate () {
         var vm = this;
-        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
+        this.$api.httpGet('findLabelById', 'id=' + vm.id).then(function (res) {
           var arr = res.labelType.goods.split('\n');
           console.log(arr);
           vm.word = arr[2]
@@ -64,47 +64,47 @@
     width: 100%;
   }
   .box {
-    padding: 0.4rem 0.4rem;
-    color: #f44;
-    font-size: 0.6rem;
+    position: relative;
+    color: rgb(60, 58, 59);
+    font-size: 0.5rem;
     display: inline-block;
     font-weight: 900;
-    height: 8rem;
-    width: 14rem;
-    opacity: 0.9;
+    height: 70%;
+    width: 70%;
     background: url(../../../static/img/12_03.png) no-repeat;
     /* box-sizing: border-box; */
   }
   .box p {
-    top: 1.5rem;
-    left: 4.3rem;
+    top: 16%;
+    left: 10%;
     position: absolute;
-    width: 11.2rem;
+    width: 82%;
   }
-  span {
-    top: 5.2rem;
+  .box span {
+    top: 50%;
     position: absolute;
+    left: 37%;
     display: block;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 23%;
+    height: 40%;
     background-color: white;
   }
   .buttonBox {
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 100%;
+    height: 11%;
+    position: absolute;
+    padding: 0 11%;
+    bottom: 1%;
   }
   .buttonBox p {
-    width: 3rem;
-    height: 1.1rem;
+    float: left;
+    width: 18%;
+    height: 100%;
+    color: white;
     background: url(../../../static/img/z2.png) no-repeat;
-    border-radius: 5px;
-    text-align: center;
-    line-height: 1rem;
-    font-size: 0.5rem;
   }
   .buttonBox p:nth-child(2) {
+    float: right;
     background: url(../../../static/img/z1.png) no-repeat;
   }
 </style>
