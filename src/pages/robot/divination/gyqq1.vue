@@ -58,7 +58,7 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'solution', params: { id: this.id} })
+              this.$router.push({ path: 'solution', params: { id: this.id } })
             }
           }, 3000)
         }
