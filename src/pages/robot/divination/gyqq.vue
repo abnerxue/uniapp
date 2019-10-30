@@ -21,7 +21,7 @@
     },
     methods: {
       button () {
-        this.$router.push('/pages/robot/divination/gyqq1')
+        this.$router.push({ path: 'gyqq1'})
       }
     }
   }
@@ -43,19 +43,19 @@
     background-size: 100% 100%;
   }
   .cqh {
-    top: 1.6rem;
-    right: 3rem;
+    top: 0.5rem;
+    right: -11rem;
     position: absolute;
-    height: 5rem;
-    width: 4.5rem;
+    height: 100%;
+    width: 100%;
     background: url(../../../static/img/qq7_03.png) no-repeat;
   }
   .buddle p {
-    top: 7.5rem;
-    right: 2.5rem;
+    top: 8.5rem;
+    right: -12rem;
     position: absolute;
-    height: 3rem;
-    width: 4rem;
+    height: 100%;
+    width: 100%;
     background: url(../../../static/img/qq7_07.png) no-repeat;
   }
 </style>

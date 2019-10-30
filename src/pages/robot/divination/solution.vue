@@ -126,6 +126,7 @@
   }
   .slbox img {
     position: absolute;
+    top:-0.5rem;
     left:1rem;
     width: 8rem;
     height: 5rem;
@@ -133,7 +134,7 @@
   }
   .slbox p {
     position: absolute;
-    top:1rem;
+    top:0rem;
     left:9.5rem;
     float: left;
     width: 9rem;
@@ -153,8 +154,8 @@
     justify-content: space-between;
   }
   .buttonBox p {
-    width: 3rem;
-    height: 1.1rem;
+    width: 4.5rem;
+    height: 2rem;
     color: white;
     background: url(../../../static/img/z2.png) no-repeat;
     border-radius: 5px;

@@ -26,7 +26,8 @@
         show: true,
         show1: false,
         number: 19,
-        timer1: null
+        timer1: null,
+        id: null
       }
     },
     mounted () {
@@ -35,14 +36,14 @@
         this.show1 = true;
         clearInterval(this.timer1)
       }, 5000)
-
       this.goNext()
-      // this.getDate()
+      this.getDate()
     },
     methods: {
       getDate () {
         var vm = this;
-        this.$api.httpGet ('findLabel', '').then(function(res){
+        this.$api.httpGet ('/findLabel', '').then(function(res){
+          console.log(res)
           vm.ji = res.label.label_no;
           vm.id = res.label.id;
         });
