@@ -48,7 +48,7 @@
     position: absolute;
     height: 5rem;
     width: 4.5rem;
-    background: url(../../../static/img/qq7_03.png);
+    background: url(../../../static/img/qq7_03.png) no-repeat;
   }
   .buddle p {
     top: 7.5rem;

@@ -35,34 +35,35 @@
       }
     },
     mounted () {
+      this.id = this.$route.params.id;
     },
     methods: {
       sy () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '事业', number: 0 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '事业', number: 0 , id: this.id } })
       },
       yy () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '姻缘', number: 1 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '姻缘', number: 1 , id: this.id } })
       },
       jk () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '健康', number: 2 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '健康', number: 2 , id: this.id } })
       },
       yx () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '远行', number: 3 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '远行', number: 3 , id: this.id } })
       },
       ss () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '诉讼', number: 4 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '诉讼', number: 4 , id: this.id } })
       },
       fd () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '房地', number: 5 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '房地', number: 5 , id: this.id } })
       },
       cl () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '财利', number: 6 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '财利', number: 6 , id: this.id } })
       },
       ks () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '考试', number: 7 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '考试', number: 7 , id: this.id } })
       },
       sw () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '失物', number: 8 } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '失物', number: 8 , id: this.id } })
       }
     }
   }
@@ -84,39 +85,33 @@
   .select {
     position: absolute;
     top: 1.5rem;
-    left: 5rem;
+    left: 2.5rem;
     height: 1rem;
-    width: 9rem;
+    width: 15rem;
     background: url(../../../static/img/10_03.png) no-repeat;
   }
   .box2 {
     position: relative;
-    height: 2rem;
+    height: 2.5rem;
     width: 100%;
     background-size: 100% 100%;
   }
   .box2 p {
     position: absolute;
     top: 0.5rem;
-    left: 4rem;
-    height: 1.5rem;
+    left: 3.8rem;
+    height: 2rem;
     width: 9rem;
     background: url(../../../static/img/10_07.png) no-repeat;
   }
   .box2 p:nth-child(2) {
     position: absolute;
-    top: 0.5rem;
-    left: 8.5rem;
-    height: 1.5rem;
-    width: 9rem;
+    left: 8.3rem;
     background: url(../../../static/img/10_09.png) no-repeat;
   }
   .box2 p:nth-child(3) {
     position: absolute;
-    top: 0.5rem;
-    left: 13rem;
-    height: 1.5rem;
-    width: 9rem;
+    left: 12.8rem;
     background: url(../../../static/img/10_11.png) no-repeat;
   }
   .box3 {

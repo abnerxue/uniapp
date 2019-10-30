@@ -7,7 +7,7 @@
   <div class='buddle'>
     <div class="box">
       <div class='qq'></div>
-      <p class="size">观音求签 第 {{ji}} 签</p>
+      <p class="size">{{ji}}</p>
     </div>
   </div>
 </template>
@@ -16,18 +16,10 @@
   export default {
     data () {
       return {
-        ji: '一',
+        ji: null,
         count: '', // 倒计时
         timer: null, // 延时器
-        ku: {
-          // 数据结构见下方文档
-        },
-        goods: {
-          // 数据结构见下方文档
-        },
-        messageConfig: {
-          // 数据结构见下方文档
-        }
+        id: null
       }
     },
     mounted () {
@@ -36,24 +28,14 @@
     },
     methods: {
       getDate () {
-        this.page_data = { id: 1 }
-
-        this.$ajax.get('/cxt/findLabelById?id=1').then(res => {
-          console.log(res)
-          // if(res.data.state==='000'){
-          //     this.pagef_data=res.data.data
-          //     let a=this.pagef_data.orderno
-          //     let b=this.pagef_data.money
-          // }else{
-          //     console.log(res.data.state);
-          //     Toast(res.data.msg);
-          // }
-        }).catch(function (error) {
-          console.log(error)
-        })
+        var vm = this;
+        this.$api.httpGet ('findLabel', '').then(function(res){
+          vm.ji = res.label.label_no;
+          vm.id = res.label.id;
+        });
       },
       goNext () { // 自动跳转到下一个页面
-        const TIME_COUNT = 10
+        const TIME_COUNT = 1
         if (!this.timer) {
           this.count = TIME_COUNT
           this.timer = setInterval(() => { // 定时器
@@ -62,7 +44,7 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push('/pages/robot/divination/solution')
+              this.$router.push({ path: 'solution', params: { id: this.id} })
             }
           }, 1000)
         }
@@ -104,7 +86,7 @@
     background: url(../../../static/img/8_02.png) no-repeat;
   }
   .box p {
-    top: 2.3rem;
+    top: 2rem;
     right: 4.3rem;
     position: absolute;
     height: 9rem;

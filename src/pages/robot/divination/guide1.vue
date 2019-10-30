@@ -22,19 +22,26 @@
         count: '', // 倒计时
         data: null,
         timer: null, // 延时器
-        word: '这都是为了您自己和家人好，保证您的好福气留的长久。庙里也不产油，不产蜡，不产铜钱，五铢钱是蓼莪禅寺的方丈开过光的，蓼莪禅寺有1600多年的历史了，开光的五铢钱有千年以上的法力，五铢钱您可以拿走。'
+        word: null
       }
     },
     mounted () {
+      this.id = this.$route.params.id;
       // 自动播放
       this.goNext()
+      this.getDate()
     },
     methods: {
       getDate () {
-
+        var vm = this;
+        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
+          var arr = res.labelType.goods.split('\n');
+          console.log(arr);
+          vm.word = arr[1]
+        });
       },
       goNext () {
-        const TIME_COUNT = 10
+        const TIME_COUNT = 5
         if (!this.timer) {
           this.count = TIME_COUNT
           this.show = false
@@ -45,7 +52,7 @@
               this.show = true
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push('/pages/robot/divination/guideBuy')
+              this.$router.push({ path: 'guideBuy', params: { id: this.id} })
             }
           }, 1000)
         }

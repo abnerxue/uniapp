@@ -6,7 +6,7 @@
 <template>
   <div class="guide">
     <div class="box">
-      <p>为了保持你的好运，我这里有{{goods}}一串，你拿回去挂在大门口，就能让你的福气维持住，不光你自己有福气，还能把你的好福气带给家人，庇护家庭。</p>
+      <p>{{goods}}</p>
     </div>
     <div class="buttonBox">
       <p v-on:click="backIndex()"></p>
@@ -21,19 +21,26 @@
         count: '', // 倒计时
         data: null,
         timer: null, // 延时器
-        goods: '五铢钱' // 要卖的物品
+        goods: null // 要卖的物品
       }
     },
     mounted () {
+      this.id = this.$route.params.id;
       // 自动播放
       this.goNext()
+      this.getDate()
     },
     methods: {
       getDate () {
-
+        var vm = this;
+        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
+          var arr = res.labelType.goods.split('\n');
+          console.log(arr);
+          vm.goods = arr[0]
+        });
       },
       goNext () {
-        const TIME_COUNT = 10
+        const TIME_COUNT = 5
         if (!this.timer) {
           this.count = TIME_COUNT
           this.show = false
@@ -44,7 +51,7 @@
               this.show = true
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push('/pages/robot/divination/guide1')
+              this.$router.push({ path: 'guide1', params: { id: this.id} })
             }
           }, 1000)
         }

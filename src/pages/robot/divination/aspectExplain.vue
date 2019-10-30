@@ -7,7 +7,7 @@
   <div class="aspectExplain" :style="'background: url(../../../static/img/9-' + i + '.jpg) no-repeat;'">
     <div class="back">
       <div class="box">
-        <p><span>{{side}}</span>：{{word}}</p>
+        <p><span></span>{{word}}</p>
       </div>
       <div class="buttonBox">
         <p v-on:click="backIndex()"></p>
@@ -26,18 +26,45 @@
         i: null, // 背景照片
         data: null,
         timer: null, // 延时器
-        word: '会有条件很好的人喜欢您，欣赏您，您要把握好机会，就会有一段美好的姻缘。但是切忌一心一意，绝不能三心二意。'
+        word: null
       }
     },
     mounted () {
       // 获取路由器传过来的值
       this.side = this.$route.params.side
       this.i = this.$route.params.number + 1
+      this.id = this.$route.params.id;
       // console.log(this.$route.params.number + 1,this.$route.params.side)
       // 自动播放
       this.goNext()
+      this.getDate()
     },
     methods: {
+      getDate () {
+        var vm = this
+        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
+          if(vm.side == '事业'){
+            vm.word = res.label.label_type_shiye
+          }else if(vm.side == '房地'){
+            vm.word = res.label.label_type_fangdi
+          }else if(vm.side == '财利'){
+            vm.word = res.label.label_type_caili
+          }else if(vm.side == '姻缘'){
+            vm.word = res.label.label_type_hunyin
+          }else if(vm.side == '健康'){
+            vm.word = res.label.label_type_jiankang
+          }else if(vm.side == '考试'){
+            vm.word = res.label.label_type_kaoshi
+          }else if(vm.side == '失物'){
+            vm.word = res.label.label_type_shiwu
+          }else if(vm.side == '诉讼'){
+            vm.word = res.label.label_type_susong
+          }else if(vm.side == '远行'){
+            vm.word = res.label.label_type_yuanxing
+          }
+          
+        })
+      },
       goNext () {
         const TIME_COUNT = 10 // 自动播放秒数
         if (!this.timer) {
@@ -51,7 +78,7 @@
               clearInterval(this.timer)
               this.timer = null
               // 跳转的页面写在此处
-              this.$router.push('/pages/robot/divination/guide')
+              this.$router.push({ path: 'guide', params: { id: this.id} })
             }
           }, 1000)
         }

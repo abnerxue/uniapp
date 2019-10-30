@@ -8,7 +8,7 @@
     <div class="back">
       <div class="box">
         <h1 class="red ">{{number}}</h1>
-        <p class="red">签文：{{poetry}}</p>
+        <p class="red">{{poetry}}</p>
       </div>
       <div class="slbox">
         <img src="../../../static/img/9_08.png" alt="">
@@ -26,9 +26,10 @@
   export default {
     data () {
       return {
-        number: '观音灵签第一签',
-        poetry: '开天辟地作良缘 吉日良时万物全 若得此签非小可 人行忠正帝王宣',
-        solution: '      您好，您运气真好，今天您抽到了我的第一个上上签，这是个天王签，能在自己工作的领域中称王，但千万要注意提防小人，要低调做人。这签意思是说您求的无论是哪个方面都会有个好的结果。',
+        number: null,
+        poetry: null,
+        solution: null,
+        id: null,
         count: '', // 倒计时
         timer: null, // 延时器
         ku: {
@@ -43,29 +44,23 @@
       }
     },
     mounted () {
-      this.goNext() // 执行自动跳转
+      this.id = this.$route.params.id;
+      console.log(this.id);
+      this.goNext()
       this.getDate()
     },
     methods: {
       getDate () {
-        this.page_data = { id: 1 }
-
-        this.$ajax.get('/cxt/findLabelById?id=1').then(res => {
-          console.log(res)
-          // if(res.data.state==='000'){
-          //     this.pagef_data=res.data.data
-          //     let a=this.pagef_data.orderno
-          //     let b=this.pagef_data.money
-          // }else{
-          //     console.log(res.data.state);
-          //     Toast(res.data.msg);
-          // }
-        }).catch(function (error) {
-          console.log(error)
-        })
+        var vm = this;
+        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
+          console.log(res);
+          vm.number = res.label.label_no
+          vm.poetry = res.label.label_content
+          vm.solution = res.label.label_jie_1
+        });
       },
       goNext () { // 自动跳转到下一个页面
-        const TIME_COUNT = 10
+        const TIME_COUNT = 5
         if (!this.timer) {
           this.count = TIME_COUNT
           this.timer = setInterval(() => { // 定时器
@@ -74,7 +69,7 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push('/pages/robot/divination/solution1')
+              this.$router.push({ path: 'solution1', params: { id: this.id} })
             }
           }, 1000)
         }
@@ -130,13 +125,18 @@
     box-sizing: border-box;
   }
   .slbox img {
+    position: absolute;
+    left:1rem;
     width: 8rem;
     height: 5rem;
     float: left;
   }
   .slbox p {
+    position: absolute;
+    top:1rem;
+    left:9.5rem;
     float: left;
-    width: 8rem;
+    width: 9rem;
     font-size: 0.5rem;
     height: 5rem;
   }

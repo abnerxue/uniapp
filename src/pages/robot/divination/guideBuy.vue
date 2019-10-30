@@ -17,26 +17,26 @@
 </template>
 
 <script>
-
-
-
-
   export default {
     data () {
       return {
         count: '', // 倒计时
         data: null,
-        word: '我的左手边有功德箱，上面有条缝，一般大家投200元，您看着给。您也可以选择我胸口的微信支付宝扫码付款哦~   '
+        word: null
       }
     },
     mounted () {
-      // 获取路由器传过来的值
-      this.side = this.$route.params.side
-      this.i = this.$route.params.number
+      this.id = this.$route.params.id;
+      this.getDate()
     },
     methods: {
       getDate () {
-
+        var vm = this;
+        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
+          var arr = res.labelType.goods.split('\n');
+          console.log(arr);
+          vm.word = arr[2]
+        });
       },
       backIndex () { // 放回主页
         this.$router.push('/pages/robot/index')
@@ -82,12 +82,11 @@
     width: 11.2rem;
   }
   span {
-    top: 4.1rem;
-    left: 8rem;
+    top: 5.2rem;
     position: absolute;
     display: block;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background-color: white;
   }
   .buttonBox {

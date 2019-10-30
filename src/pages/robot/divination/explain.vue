@@ -5,10 +5,12 @@
  -->
 <template>
   <div class="explain">
-    <p>签是问事的，请问你求什么?<br />问一件事求一次签，心诚则灵。</p>
-    <div class="buttonBox">
-      <p v-on:click="backIndex()"></p>
-      <p v-on:click="goback()"></p>
+    <div class="box">
+      <p>签是问事的，请问你求什么?<br />问一件事求一次签，心诚则灵。</p>
+      <div class="buttonBox">
+        <p v-on:click="backIndex()"></p>
+        <p v-on:click="goback()"></p>
+      </div>
     </div>
   </div>
 </template>
@@ -22,11 +24,12 @@
       }
     },
     mounted () {
+      this.id = this.$route.params.id;
       this.goNext()
     },
     methods: {
       goNext () {
-        const TIME_COUNT = 10
+        const TIME_COUNT = 5
         if (!this.timer) {
           this.count = TIME_COUNT
           this.show = false
@@ -37,7 +40,7 @@
               this.show = true
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push('/pages/robot/divination/aspect1')
+              this.$router.push({ path: 'aspect1', params: { id: this.id} })
             }
           }, 1000)
         }
@@ -60,7 +63,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url(../../../static/img/explainbg.jpg) no-repeat;
+    background: url(../../../static/img/9-4.jpg) no-repeat;
     background-size: 100% 100%;
     display: flex;
     justify-content: center;
@@ -68,14 +71,27 @@
     padding-top: 3rem;
     width: 100%;
   }
-  .explain > p {
-    color: #f44;
+  .box{
+    position: absolute;
+    top: 2.6rem;
+    left: 5rem;
+    height: 5.5rem;
+    width: 10rem;
+    background: url(../../../static/img/28.png) no-repeat;
+    background-size: 100% 100%;
+  }
+  .box > p {
+    position: absolute;
+    left:0.4rem;
+    color: rgba(155, 86, 46, 0.582);
     font-size: 1rem;
     font-weight: 900;
     display: inline-block;
     opacity: 0.9;
-    padding: 0.4rem 0.4rem;
-    background-color: white;
+    padding: 0.8rem 0.8rem;
+    font-size:54px;
+    text-align: center;
+    line-height: 1rem;
   }
   .buttonBox {
     width: 80%;
@@ -87,6 +103,9 @@
     justify-content: space-between;
   }
   .buttonBox p {
+    position: absolute;
+    top:2.2rem;
+    left:-5rem;
     width: 3rem;
     height: 1.1rem;
     color: white;
@@ -97,6 +116,8 @@
     font-size: 0.5rem;
   }
   .buttonBox p:nth-child(2) {
+    top:2.2rem;
+    left:8.7rem;
     background: url(../../../static/img/z1.png) no-repeat;
   }
 </style>
