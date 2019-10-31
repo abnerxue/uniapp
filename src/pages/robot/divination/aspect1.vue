@@ -31,39 +31,39 @@
     data () {
       return {
         count: '', // 倒计时
-        sideList: ['事业', '姻缘', '诉讼', '远行', '财利', '考试', '健康', '房地', '失物']
+        obj: {},
       }
     },
     mounted () {
-      this.id = this.$route.params.id;
+      this.obj = this.$route.params.obj;
     },
     methods: {
       sy () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '事业', number: 0 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '事业', number: 0 , obj: this.obj } })
       },
       yy () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '姻缘', number: 1 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '姻缘', number: 1 , obj: this.obj } })
       },
       jk () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '健康', number: 2 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '健康', number: 2 , obj: this.obj } })
       },
       yx () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '远行', number: 3 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '远行', number: 3 , obj: this.obj } })
       },
       ss () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '诉讼', number: 4 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '诉讼', number: 4 , obj: this.obj } })
       },
       fd () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '房地', number: 5 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '房地', number: 5 , obj: this.obj } })
       },
       cl () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '财利', number: 6 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '财利', number: 6 , obj: this.obj } })
       },
       ks () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '考试', number: 7 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '考试', number: 7 , obj: this.obj } })
       },
       sw () {
-        this.$router.push({ path: 'aspectExplain', params: { side: '失物', number: 8 , id: this.id } })
+        this.$router.push({ path: 'aspectExplain', params: { side: '失物', number: 8 , obj: this.obj } })
       }
     }
   }

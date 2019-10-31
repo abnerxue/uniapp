@@ -8,9 +8,9 @@
     <div class="box">
       <!-- <div class='qq'></div>
       <p class="size">观音求签 第 {{ji}} 签</p> -->
-      <embed v-if="show" src="../../../static/img/drawLots.gif" />
+      <embed v-if="show" src="../../../static/img/yqdh3.gif" />
       <p v-if="show1">
-        <i>{{number}}</i>
+        <i>{{obj.number}}</i>
       </p>
     </div>
   </div>
@@ -25,9 +25,8 @@
         timer: null, // 延时器
         show: true,
         show1: false,
-        number: null,
         timer1: null,
-        id: null
+        obj: {}
       }
     },
     mounted () {
@@ -44,8 +43,24 @@
         var vm = this;
         this.$api.httpGet ('/findLabel', '').then(function(res){
           console.log(res)
-          vm.number = res.label.label_num;
-          vm.id = res.label.id;
+          vm.obj = {
+            number : res.label.label_num,
+            id : res.label.id,
+            no : res.label.label_no,
+            poetry : res.label.label_content,
+            solution : res.label.label_jie_1,
+            solution1 : res.label.label_jie_2,
+            caili : res.label.label_type_caili,
+            fangdi : res.label.label_type_fangdi,
+            huiyin : res.label.label_type_hunyin,
+            jiankang : res.label.label_type_kaoshi,
+            kaoshi : res.label.label_type_kaoshi,
+            shiwu : res.label.label_type_shiwu,
+            susong : res.label.label_type_susong,
+            yuanxing : res.label.label_type_yuanxing,
+            goods : res.labelType.goods
+          }
+          console.log(vm.obj)          
         });
       },
       goNext () { // 自动跳转到下一个页面
@@ -58,9 +73,9 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'solution', params: { id: this.id } })
+              this.$router.push({ path: 'solution', params: { obj : this.obj} })
             }
-          }, 3000)
+          }, 1000)
         }
       },
       backIndex () { // 放回主页

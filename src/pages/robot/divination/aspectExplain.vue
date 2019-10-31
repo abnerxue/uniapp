@@ -4,7 +4,7 @@
  方面解签页面
  -->
 <template>
-  <div class="aspectExplain" :style="'background: url(../../../static/img/9-' + i + '.jpg) no-repeat;'">
+  <div class="aspectExplain" :style="'background: url(../../../static/img/9--' + i + '.jpg) no-repeat;'">
     <div class="back">
       <div class="box">
         <p><span></span>{{word}}</p>
@@ -24,46 +24,43 @@
         count: '', // 倒计时
         side: '', // 选择的方面
         i: null, // 背景照片
-        data: null,
         timer: null, // 延时器
-        word: null
+        word: null,
+        obj: {}
       }
     },
     mounted () {
       // 获取路由器传过来的值
       this.side = this.$route.params.side
       this.i = this.$route.params.number + 1
-      this.id = this.$route.params.id;
-      // console.log(this.$route.params.number + 1,this.$route.params.side)
+      this.obj = this.$route.params.obj;
+      this.side = this.$route.params.side
+      this.getDate();
       // 自动播放
       this.goNext()
-      this.getDate()
+      
     },
     methods: {
       getDate () {
-        var vm = this
-        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
-          if(vm.side == '事业'){
-            vm.word = res.label.label_type_shiye
-          }else if(vm.side == '房地'){
-            vm.word = res.label.label_type_fangdi
-          }else if(vm.side == '财利'){
-            vm.word = res.label.label_type_caili
-          }else if(vm.side == '姻缘'){
-            vm.word = res.label.label_type_hunyin
-          }else if(vm.side == '健康'){
-            vm.word = res.label.label_type_jiankang
-          }else if(vm.side == '考试'){
-            vm.word = res.label.label_type_kaoshi
-          }else if(vm.side == '失物'){
-            vm.word = res.label.label_type_shiwu
-          }else if(vm.side == '诉讼'){
-            vm.word = res.label.label_type_susong
-          }else if(vm.side == '远行'){
-            vm.word = res.label.label_type_yuanxing
-          }
-          
-        })
+        if(this.side == '事业'){
+          this.word = this.obj.shiye
+        }else if(this.side == '房地'){
+          this.word = this.obj.fangdi
+        }else if(this.side == '财利'){
+          this.word = this.obj.caili
+        }else if(this.side == '姻缘'){
+          this.word = this.obj.hunyin
+        }else if(this.side == '健康'){
+          this.word = this.obj.jiankang
+        }else if(this.side == '考试'){
+          this.word = this.obj.kaoshi
+        }else if(this.side == '失物'){
+          this.word = this.obj.shiwu
+        }else if(this.side == '诉讼'){
+          this.word = this.obj.susong
+        }else if(this.side == '远行'){
+          this.word = this.obj.yuanxing
+        }
       },
       goNext () {
         const TIME_COUNT = 5 // 自动播放秒数
@@ -78,7 +75,7 @@
               clearInterval(this.timer)
               this.timer = null
               // 跳转的页面写在此处
-              this.$router.push({ path: 'guide', params: { id: this.id} })
+              this.$router.push({ path: 'guide', params: { obj: this.obj} })
             }
           }, 1000)
         }
@@ -124,10 +121,10 @@
     left: 1.3rem;
     height: 5.5rem;
     width: 7.5rem;
+    font-weight: 900;
     display: inline-block;
     font-size: 38px;
-    color: #606740;
-    font-family: "杨任东竹石体";
+    color: white;
   }
   .buttonBox {
     width: 80%;

@@ -20,11 +20,12 @@
     data () {
       return {
         count: '', // 倒计时
-        timer: null // 延时器
+        timer: null, // 延时器
+        obj: null,
       }
     },
     mounted () {
-      this.id = this.$route.params.id;
+      this.obj = this.$route.params.obj;
       this.goNext()
     },
     methods: {
@@ -40,7 +41,7 @@
               this.show = true
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'aspect1', params: { id: this.id} })
+              this.$router.push({ path: 'aspect1', params: { obj: this.obj} })
             }
           }, 1000)
         }
@@ -63,7 +64,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url(../../../static/img/9-4.jpg) no-repeat;
+    background: url(../../../static/img/9--4.jpg) no-repeat;
     background-size: 100% 100%;
     display: flex;
     justify-content: center;
@@ -83,7 +84,7 @@
   .box > p {
     position: absolute;
     left:0.4rem;
-    color: rgba(155, 86, 46, 0.582);
+    color: white;
     font-size: 1rem;
     font-weight: 900;
     display: inline-block;
@@ -108,12 +109,9 @@
     left:-5rem;
     width: 4.5rem;
     height: 2rem;
-    color: white;
     background: url(../../../static/img/z2.png) no-repeat;
     border-radius: 5px;
     text-align: center;
-    line-height: 1rem;
-    font-size: 0.5rem;
   }
   .buttonBox p:nth-child(2) {
     top:2.2rem;

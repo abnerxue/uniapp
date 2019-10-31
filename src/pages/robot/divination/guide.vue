@@ -19,25 +19,21 @@
     data () {
       return {
         count: '', // 倒计时
-        data: null,
         timer: null, // 延时器
-        goods: null // 要卖的物品
+        goods: null, // 要卖的物品
+        obj: {},
       }
     },
     mounted () {
-      this.id = this.$route.params.id;
+      this.obj = this.$route.params.obj;
       // 自动播放
       this.goNext()
       this.getDate()
     },
     methods: {
       getDate () {
-        var vm = this;
-        this.$api.httpGet('findLabelById', 'id=' + vm.id).then(function (res) {
-          var arr = res.labelType.goods.split('\n');
-          console.log(arr);
-          vm.goods = arr[0]
-        });
+        var arr = this.obj.goods.split('\n');
+        this.goods = arr[0]
       },
       goNext () {
         const TIME_COUNT = 5
@@ -51,7 +47,7 @@
               this.show = true
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'guide1', params: { id: this.id } })
+              this.$router.push({ path: 'guide1', params: { obj: this.obj } })
             }
           }, 1000)
         }

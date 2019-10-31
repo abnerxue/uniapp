@@ -21,22 +21,18 @@
     data () {
       return {
         count: '', // 倒计时
-        data: null,
-        word: null
+        obj: {},
+        word: null,
       }
     },
     mounted () {
-      this.id = this.$route.params.id;
-      this.getDate()
+      this.obj = this.$route.params.obj;
+      this.getDate();
     },
     methods: {
       getDate () {
-        var vm = this;
-        this.$api.httpGet('findLabelById', 'id=' + vm.id).then(function (res) {
-          var arr = res.labelType.goods.split('\n');
-          console.log(arr);
-          vm.word = arr[2]
-        });
+        var arr = this.obj.goods.split('\n');
+        this.word = arr[2]
       },
       backIndex () { // 放回主页
         this.$router.push('/pages/robot/index')

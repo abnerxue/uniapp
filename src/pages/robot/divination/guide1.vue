@@ -20,25 +20,21 @@
     data () {
       return {
         count: '', // 倒计时
-        data: null,
         timer: null, // 延时器
-        word: null
+        word: null,
+        obj: {}
       }
     },
     mounted () {
-      this.id = this.$route.params.id;
+      this.obj = this.$route.params.obj;
       // 自动播放
       this.goNext()
       this.getDate()
     },
     methods: {
       getDate () {
-        var vm = this;
-        this.$api.httpGet('findLabelById', 'id=' + vm.id).then(function (res) {
-          var arr = res.labelType.goods.split('\n');
-          console.log(arr);
-          vm.word = arr[1]
-        });
+        var arr = this.obj.goods.split('\n');
+        this.word = arr[1];
       },
       goNext () {
         const TIME_COUNT = 5
@@ -52,7 +48,7 @@
               this.show = true
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'guideBuy', params: { id: this.id } })
+              this.$router.push({ path: 'guideBuy', params: { obj: this.obj } })
             }
           }, 1000)
         }

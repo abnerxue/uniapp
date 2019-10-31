@@ -4,15 +4,15 @@
 解签页面
  -->
 <template>
-  <div class="solution">\
+  <div class="solution">
     <div class="back">
       <div class="box">
-        <h1 class="red ">{{number}}</h1>
-        <p class="red">{{poetry}}</p>
+        <h1 class="red ">{{obj.no}}</h1>
+        <p class="red">{{obj.poetry}}</p>
       </div>
       <div class="slbox">
         <img src="../../../static/img/9_08.png" alt="">
-        <p>{{solution}}</p>
+        <p>{{obj.solution}}</p>
       </div>
       <div class="buttonBox">
         <p v-on:click="backIndex()"></p>
@@ -26,39 +26,17 @@
   export default {
     data () {
       return {
-        number: null,
-        poetry: null,
-        solution: null,
-        id: null,
+        obj : {},
         count: '', // 倒计时
         timer: null, // 延时器
-        ku: {
-          // 数据结构见下方文档
-        },
-        goods: {
-          // 数据结构见下方文档
-        },
-        messageConfig: {
-          // 数据结构见下方文档
-        }
       }
     },
     mounted () {
-      this.id = this.$route.params.id;
-      console.log(this.id);
-      this.goNext()
-      this.getDate()
+      this.obj = this.$route.params.obj;
+      this.goNext();
+      
     },
     methods: {
-      getDate () {
-        var vm = this;
-        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
-          console.log(res);
-          vm.number = res.label.label_no
-          vm.poetry = res.label.label_content
-          vm.solution = res.label.label_jie_1
-        });
-      },
       goNext () { // 自动跳转到下一个页面
         const TIME_COUNT = 5
         if (!this.timer) {
@@ -69,7 +47,7 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'solution1', params: { id: this.id} })
+              this.$router.push({ path: 'solution1', params: { obj : this.obj} })
             }
           }, 1000)
         }
