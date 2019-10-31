@@ -101,7 +101,7 @@
     top: 0.5rem;
     left: 3.6rem;
     height: 2rem;
-    width: 9rem;
+    width: 4rem;
     background: url(../../../static/img/10_07.png) no-repeat;
   }
   .box2 p:nth-child(2) {
@@ -125,21 +125,19 @@
     top: 0.5rem;
     left: 3.6rem;
     height: 2rem;
-    width: 9rem;
+    width: 4rem;
     background: url(../../../static/img/10_16.png) no-repeat;
   }
   .box3 p:nth-child(2) {
     position: absolute;
     top: 0.5rem;
     left: 8.1rem;
-    width: 9rem;
     background: url(../../../static/img/10_17.png) no-repeat;
   }
   .box3 p:nth-child(3) {
     position: absolute;
     top: 0.5rem;
     left: 12.6rem;
-    width: 9rem;
     background: url(../../../static/img/10_18.png) no-repeat;
   }
   .box4 {
@@ -153,21 +151,19 @@
     top: 0.2rem;
     left: 3.6rem;
     height: 2.3rem;
-    width: 9rem;
+    width: 4rem;
     background: url(../../../static/img/10_22.png) no-repeat;
   }
   .box4 p:nth-child(2) {
     position: absolute;
     top: 0.2rem;
     left: 8.1rem;
-    width: 9rem;
     background: url(../../../static/img/10_23.png) no-repeat;
   }
   .box4 p:nth-child(3) {
     position: absolute;
     top: 0.2rem;
     left: 12.6rem;
-    width: 9rem;
     background: url(../../../static/img/10_24.png) no-repeat;
   }
 </style>

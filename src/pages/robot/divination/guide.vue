@@ -10,6 +10,7 @@
     </div>
     <div class="buttonBox">
       <p v-on:click="backIndex()"></p>
+      <p v-on:click="goback()"></p>
     </div>
   </div>
 </template>
@@ -100,19 +101,25 @@
   }
   .buttonBox {
     width: 100%;
-    height: 100%;
+    height: 20%;
     position: absolute;
     padding: 0 11%;
     bottom: 1%;
   }
   .buttonBox p {
-    position: absolute;
-    top:9.7rem;
-    left:-8.5rem;
+    top: -0.5rem;
+    left: 1.5rem;
     float: left;
+    position: absolute;
     width: 100%;
     height: 100%;
     color: white;
     background: url(../../../static/img/z2.png) no-repeat;
   }
+  .buttonBox p:nth-child(2) {
+    left: 13.8rem;
+    float: right;
+    background: url(../../../static/img/z1.png) no-repeat;
+  }
+  
 </style>

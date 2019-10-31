@@ -31,37 +31,34 @@
     },
     mounted () {
       // 获取路由器传过来的值
-      this.side = this.$route.params.side
       this.i = this.$route.params.number + 1
       this.obj = this.$route.params.obj;
-      this.side = this.$route.params.side
-      this.getDate();
+      this.side = this.$route.params.side;
+      if(this.side == '事业'){
+        this.word = this.obj.shiye
+      }else if(this.side == '房地'){
+        this.word = this.obj.fangdi
+      }else if(this.side == '财利'){
+        this.word = this.obj.caili
+      }else if(this.side == '姻缘'){
+        this.word = this.obj.huiyin
+        console.log(this.obj.hunyin)
+      }else if(this.side == '健康'){
+        this.word = this.obj.jiankang
+      }else if(this.side == '考试'){
+        this.word = this.obj.kaoshi
+      }else if(this.side == '失物'){
+        this.word = this.obj.shiwu
+      }else if(this.side == '诉讼'){
+        this.word = this.obj.susong
+      }else if(this.side == '远行'){
+        this.word = this.obj.yuanxing
+      }
       // 自动播放
       this.goNext()
       
     },
     methods: {
-      getDate () {
-        if(this.side == '事业'){
-          this.word = this.obj.shiye
-        }else if(this.side == '房地'){
-          this.word = this.obj.fangdi
-        }else if(this.side == '财利'){
-          this.word = this.obj.caili
-        }else if(this.side == '姻缘'){
-          this.word = this.obj.hunyin
-        }else if(this.side == '健康'){
-          this.word = this.obj.jiankang
-        }else if(this.side == '考试'){
-          this.word = this.obj.kaoshi
-        }else if(this.side == '失物'){
-          this.word = this.obj.shiwu
-        }else if(this.side == '诉讼'){
-          this.word = this.obj.susong
-        }else if(this.side == '远行'){
-          this.word = this.obj.yuanxing
-        }
-      },
       goNext () {
         const TIME_COUNT = 5 // 自动播放秒数
         if (!this.timer) {

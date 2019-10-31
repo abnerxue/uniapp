@@ -25,7 +25,7 @@
     },
     methods: {
       startDraw () {
-        this.$router.push('/pages/robot/divination/gyqq')
+        this.$router.push({ path: 'gyqq1'})
       }
     }
   }
