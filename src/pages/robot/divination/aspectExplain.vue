@@ -66,7 +66,7 @@
         })
       },
       goNext () {
-        const TIME_COUNT = 10 // 自动播放秒数
+        const TIME_COUNT = 5 // 自动播放秒数
         if (!this.timer) {
           this.count = TIME_COUNT
           this.show = false
@@ -120,12 +120,12 @@
   }
   .box p {
     position: absolute;
-    top: 1.2rem;
+    top: 0.5rem;
     left: 1.3rem;
     height: 5.5rem;
-    width: 7rem;
+    width: 7.5rem;
     display: inline-block;
-    font-size: 42px;
+    font-size: 38px;
     color: #606740;
     font-family: "杨任东竹石体";
   }
@@ -139,8 +139,8 @@
     justify-content: space-between;
   }
   .buttonBox p {
-    width: 3rem;
-    height: 1.1rem;
+    width: 4.5rem;
+    height: 2rem;
     color: white;
     background: url(../../../static/img/z2.png) no-repeat;
     border-radius: 5px;

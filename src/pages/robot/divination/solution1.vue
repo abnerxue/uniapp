@@ -44,20 +44,20 @@
       }
     },
     mounted () {
-      this.id = this.$route.params.id;
-      console.log(this.id);
+      this.id = this.$route.params.id
+      console.log(this.id)
       this.goNext()
       this.getDate()
     },
     methods: {
       getDate () {
-        var vm = this;
-        this.$api.httpGet ('findLabelById', 'id='+vm.id).then(function(res){
-          console.log(res);
+        var vm = this
+        this.$api.httpGet ('findLabelById', 'id=' + vm.id).then(function (res) {
+          console.log(res)
           vm.number = res.label.label_no
           vm.poetry = res.label.label_content
           vm.solution = res.label.label_jie_2
-        });
+        })
       },
       goNext () { // 自动跳转到下一个页面
         const TIME_COUNT = 5
@@ -69,7 +69,7 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'explain', params: { id: this.id} })
+              this.$router.push({ path: 'explain', params: { id: this.id } })
             }
           }, 1000)
         }
@@ -126,6 +126,7 @@
   }
   .slbox img {
     position: absolute;
+    top:-0.5rem;
     left:1rem;
     width: 8rem;
     height: 5rem;
@@ -133,7 +134,7 @@
   }
   .slbox p {
     position: absolute;
-    top:1rem;
+    top:0rem;
     left:9.5rem;
     float: left;
     width: 9rem;
@@ -153,8 +154,8 @@
     justify-content: space-between;
   }
   .buttonBox p {
-    width: 3rem;
-    height: 1.1rem;
+    width: 4.5rem;
+    height: 2rem;
     color: white;
     background: url(../../../static/img/z2.png) no-repeat;
     border-radius: 5px;

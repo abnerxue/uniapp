@@ -25,7 +25,7 @@
         timer: null, // 延时器
         show: true,
         show1: false,
-        number: 19,
+        number: null,
         timer1: null,
         id: null
       }
@@ -44,12 +44,12 @@
         var vm = this;
         this.$api.httpGet ('/findLabel', '').then(function(res){
           console.log(res)
-          vm.ji = res.label.label_no;
+          vm.number = res.label.label_num;
           vm.id = res.label.id;
         });
       },
       goNext () { // 自动跳转到下一个页面
-        const TIME_COUNT = 3;
+        const TIME_COUNT = 5;
         if (!this.timer) {
           this.count = TIME_COUNT
           this.timer = setInterval(() => { // 定时器

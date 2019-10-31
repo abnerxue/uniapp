@@ -64,46 +64,53 @@
     width: 100%;
   }
   .box {
-    position: relative;
+    position: absolute;
+    top:0.5rem;
+    left:1rem;
     color: rgb(60, 58, 59);
     font-size: 0.5rem;
     display: inline-block;
     font-weight: 900;
-    height: 70%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
     background: url(../../../static/img/12_03.png) no-repeat;
+    background-size: 90% 70%;
     /* box-sizing: border-box; */
   }
   .box p {
-    top: 16%;
-    left: 10%;
+    top: 1rem;
+    left: 1.6rem;
     position: absolute;
-    width: 82%;
+    width: 75%;
   }
   .box span {
-    top: 50%;
+    top: 3rem;
     position: absolute;
-    left: 37%;
+    left: 6.5rem;
     display: block;
-    width: 23%;
-    height: 40%;
+    width: 4.5rem;
+    height: 4.5rem;
     background-color: white;
   }
   .buttonBox {
     width: 100%;
-    height: 11%;
+    height: 20%;
     position: absolute;
     padding: 0 11%;
     bottom: 1%;
   }
   .buttonBox p {
+    top: -0.5rem;
+    left: 1.5rem;
     float: left;
-    width: 18%;
+    position: absolute;
+    width: 100%;
     height: 100%;
     color: white;
     background: url(../../../static/img/z2.png) no-repeat;
   }
   .buttonBox p:nth-child(2) {
+    left: 13.8rem;
     float: right;
     background: url(../../../static/img/z1.png) no-repeat;
   }

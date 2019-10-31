@@ -6,7 +6,7 @@
 <template>
   <div class="explain">
     <div class="box">
-      <p>签是问事的，请问你求什么?<br />问一件事求一次签，心诚则灵。</p>
+      <p>签是问事的，请问您求什么?<br />问一件事求一次签，心诚则灵。</p>
       <div class="buttonBox">
         <p v-on:click="backIndex()"></p>
         <p v-on:click="goback()"></p>
@@ -88,8 +88,8 @@
     font-weight: 900;
     display: inline-block;
     opacity: 0.9;
-    padding: 0.8rem 0.8rem;
-    font-size:54px;
+    padding: 0.8rem 1.4rem 0.8rem 0.8rem;
+    font-size:48px;
     text-align: center;
     line-height: 1rem;
   }
@@ -106,8 +106,8 @@
     position: absolute;
     top:2.2rem;
     left:-5rem;
-    width: 3rem;
-    height: 1.1rem;
+    width: 4.5rem;
+    height: 2rem;
     color: white;
     background: url(../../../static/img/z2.png) no-repeat;
     border-radius: 5px;
@@ -117,7 +117,7 @@
   }
   .buttonBox p:nth-child(2) {
     top:2.2rem;
-    left:8.7rem;
+    left:6.7rem;
     background: url(../../../static/img/z1.png) no-repeat;
   }
 </style>

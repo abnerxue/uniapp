@@ -86,7 +86,7 @@
     position: absolute;
     top: 1.5rem;
     left: 2.5rem;
-    height: 1rem;
+    height: 1.2rem;
     width: 15rem;
     background: url(../../../static/img/10_03.png) no-repeat;
   }

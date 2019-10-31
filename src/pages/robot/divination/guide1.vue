@@ -85,35 +85,46 @@
     width: 100%;
   }
   .box {
+    position: absolute;
+    top:0.5rem;
+    left:1rem;
     color: rgb(60, 58, 59);
     font-size: 0.5rem;
+    font-weight: 900;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 900;
-    height: 70%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
     background: url("../../../static/img/12_03.png") no-repeat;
+    background-size: 90% 70%;
     /* box-sizing: border-box; */
   }
   .box p {
-    width: 80%;
+    position: absolute;
+    top: 3rem;
+    left: 2rem;
+    width: 70%;
   }
   .buttonBox {
     width: 100%;
-    height: 11%;
+    height: 100%;
     position: absolute;
     padding: 0 11%;
     bottom: 1%;
   }
   .buttonBox p {
+    position: absolute;
+    top:9.7rem;
+    left:-8.5rem;
     float: left;
-    width: 18%;
+    width: 100%;
     height: 100%;
     color: white;
     background: url(../../../static/img/z2.png) no-repeat;
   }
   .buttonBox p:nth-child(2) {
+    left:3.8rem;
     float: right;
     background: url(../../../static/img/z1.png) no-repeat;
   }

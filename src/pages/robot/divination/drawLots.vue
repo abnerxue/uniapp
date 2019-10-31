@@ -26,7 +26,7 @@
     methods: {
       startDraw () {
         this.$router.push('/pages/robot/divination/gyqq')
-      },
+      }
     }
   }
 </script>

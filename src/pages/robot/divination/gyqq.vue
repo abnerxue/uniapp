@@ -52,7 +52,7 @@
   }
   .buddle p {
     top: 8.5rem;
-    right: -12rem;
+    right: -12.5rem;
     position: absolute;
     height: 100%;
     width: 100%;
