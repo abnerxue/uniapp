@@ -35,7 +35,7 @@
         this.show1 = true;
         clearInterval(this.timer1)
       }, 5000)
-      window.android.startSpeak('随机抽签了，懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂');
+      window.android.startSpeak('随机抽签中，请耐心等待。');
       this.goNext()
       this.getDate()
     },

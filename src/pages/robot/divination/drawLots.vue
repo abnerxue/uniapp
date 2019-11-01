@@ -24,8 +24,8 @@
       }
     },
     mounted(){
-      window.android.startSpeak('嗨，各位叔叔阿姨，大家好！咳，请听我认真来说，你们知道观音灵签吗？求签祈福保平安，快来讨个好兆头吧！告诉你，我们是一个集传统文化和人文科学于一身的科技项目，快来点击开始抽签吧。');
-      window.android.handDoAbsoluteAngleMotion(10,1,0);
+      window.android.startSpeak('嗨，各位叔叔阿姨，大家好！咳，请听我认真来说，你们知道观音灵签吗？求签祈福保平安。告诉你这是一个集传统文化和人文科学于一身的科技项目，快来点击开始抽签吧。');
+      window.android.handDoAbsoluteAngleMotion(10,1,270);
       window.android.setLED(0,25,1,7);
     },
     methods: {
