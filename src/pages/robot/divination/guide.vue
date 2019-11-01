@@ -30,7 +30,7 @@
       window.android.handDoAbsoluteAngleMotion(10,1,0);
       window.android.setLED(0,25,1,7);
       // 自动播放
-      // this.goNext()
+      this.goNext()
       this.getDate()
     },
     methods: {
