@@ -27,37 +27,45 @@
     },
     mounted () {
       this.obj = this.$route.params.obj;
+      window.android.handDoAbsoluteAngleMotion(10,1,0);
+      window.android.setLED(0,25,1,7);
       // 自动播放
-      this.goNext()
+      // this.goNext()
       this.getDate()
     },
     methods: {
       getDate () {
         var arr = this.obj.goods.split('\n');
         this.goods = arr[0]
+        window.android.startSpeak(this.goods);
       },
       goNext () {
-        const TIME_COUNT = 5
+        const TIME_COUNT = 60
         if (!this.timer) {
           this.count = TIME_COUNT
-          this.show = false
-          this.timer = setInterval(() => {
+          this.timer = setInterval(() => { // 定时器
             if (this.count > 0 && this.count <= TIME_COUNT) {
-              this.count--
-            } else {
-              this.show = true
-              clearInterval(this.timer)
-              this.timer = null
-              this.$router.push({ path: 'guide1', params: { obj: this.obj } })
+              window.android.handDoAbsoluteAngleMotion(10,1,this.count);
+              if(window.android.isSpeaking()==1){
+                this.count--;
+              } else {
+                clearInterval(this.timer)
+                this.timer = null
+                this.$router.push({ path: 'guide1', params: { obj: this.obj } })
+              }
             }
           }, 1000)
         }
       },
       backIndex () { // 放回主页
         this.$router.push('/pages/robot/index')
+      },
+      goback () { // 返回上一页
+        this.$router.push('/pages/robot/divination/drawLots')
       }
     },
     destroyed () {
+      window.android.stopSpeak();
       clearInterval(this.timer)
     }
   }
@@ -76,6 +84,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    overflow: hidden;
   }
   .box {
     position: absolute;
@@ -108,7 +117,7 @@
   }
   .buttonBox p {
     top: -0.5rem;
-    left: 1.5rem;
+    left: -8.5rem;
     float: left;
     position: absolute;
     width: 100%;
@@ -117,7 +126,7 @@
     background: url(../../../static/img/z2.png) no-repeat;
   }
   .buttonBox p:nth-child(2) {
-    left: 13.8rem;
+    left: 3.8rem;
     float: right;
     background: url(../../../static/img/z1.png) no-repeat;
   }

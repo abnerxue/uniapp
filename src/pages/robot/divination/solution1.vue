@@ -37,20 +37,26 @@
     },
     mounted () {
       this.obj = this.$route.params.obj;
+      window.android.startSpeak(this.obj.solution1);
+      window.android.handDoAbsoluteAngleMotion(10,1,270);
+      window.android.setLED(0,25,1,7);
       this.goNext();
     },
     methods: {
       goNext () { // 自动跳转到下一个页面
-        const TIME_COUNT = 5
+        const TIME_COUNT = 60
         if (!this.timer) {
           this.count = TIME_COUNT
           this.timer = setInterval(() => { // 定时器
             if (this.count > 0 && this.count <= TIME_COUNT) {
-              this.count--
-            } else {
-              clearInterval(this.timer)
-              this.timer = null
-              this.$router.push({ path: 'explain', params: { obj: this.obj } })
+              window.android.handDoAbsoluteAngleMotion(10,1,this.count);
+              if(window.android.isSpeaking()==1){
+                this.count--;
+              } else {
+                clearInterval(this.timer)
+                this.timer = null
+                this.$router.push({ path: 'explain', params: { obj: this.obj } })
+              }
             }
           }, 1000)
         }
@@ -63,7 +69,8 @@
       }
     },
     destroyed () {
-      clearInterval(this.timer)
+      window.android.stopSpeak();
+      clearInterval(this.timer);
     }
   }
 </script>

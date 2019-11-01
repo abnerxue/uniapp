@@ -27,12 +27,15 @@
     },
     mounted () {
       this.obj = this.$route.params.obj;
+      window.android.handDoAbsoluteAngleMotion(10,1,0);
+      window.android.setLED(0,25,1,7);
       this.getDate();
     },
     methods: {
       getDate () {
         var arr = this.obj.goods.split('\n');
-        this.word = arr[2]
+        this.word = arr[2];
+        window.android.startSpeak(this.word);
       },
       backIndex () { // 放回主页
         this.$router.push('/pages/robot/index')
@@ -40,6 +43,9 @@
       goback () { // 返回上一页
         this.$router.push('/pages/robot/divination/drawLots')
       }
+    },
+    destroyed(){
+      window.android.stopSpeak();
     }
   }
 </script>
@@ -58,6 +64,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    overflow: hidden;
   }
   .box {
     position: absolute;

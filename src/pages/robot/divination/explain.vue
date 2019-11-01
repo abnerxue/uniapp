@@ -26,22 +26,26 @@
     },
     mounted () {
       this.obj = this.$route.params.obj;
+      window.android.startSpeak("签是问事的，请问您求什么?问一件事求一次签，心诚则灵。");
+      window.android.handDoAbsoluteAngleMotion(10,1,0);
+      window.android.setLED(0,25,1,7);
       this.goNext()
     },
     methods: {
       goNext () {
-        const TIME_COUNT = 5
+        const TIME_COUNT = 60;
         if (!this.timer) {
           this.count = TIME_COUNT
-          this.show = false
-          this.timer = setInterval(() => {
+          this.timer = setInterval(() => { // 定时器
             if (this.count > 0 && this.count <= TIME_COUNT) {
-              this.count--
-            } else {
-              this.show = true
-              clearInterval(this.timer)
-              this.timer = null
-              this.$router.push({ path: 'aspect1', params: { obj: this.obj} })
+              window.android.handDoAbsoluteAngleMotion(10,1,this.count);
+              if(window.android.isSpeaking()==1){
+                this.count--;
+              } else {
+                clearInterval(this.timer)
+                this.timer = null
+                this.$router.push({ path: 'aspect1', params: { obj: this.obj } })
+              }
             }
           }, 1000)
         }
@@ -54,6 +58,7 @@
       }
     },
     destroyed () {
+      window.android.stopSpeak();
       clearInterval(this.timer)
     }
   }
@@ -71,6 +76,7 @@
     align-items: flex-start;
     padding-top: 3rem;
     width: 100%;
+    overflow: hidden;
   }
   .box{
     position: absolute;

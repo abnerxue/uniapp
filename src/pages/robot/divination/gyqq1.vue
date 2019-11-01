@@ -35,6 +35,7 @@
         this.show1 = true;
         clearInterval(this.timer1)
       }, 5000)
+      window.android.startSpeak('随机抽签了，懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂懂');
       this.goNext()
       this.getDate()
     },
@@ -58,6 +59,7 @@
             shiwu: res.label.label_type_shiwu,
             susong: res.label.label_type_susong,
             yuanxing: res.label.label_type_yuanxing,
+            shiye: res.label.label_type_shiye,
             goods: res.labelType.goods
           }
           console.log(vm.obj)
@@ -105,6 +107,7 @@
     width: 100%;
     /* background: url(../../../static/img/8back.jpg) no-repeat; */
     background-size: 100% 100%;
+    overflow: hidden;
   }
   embed {
     height: 100%;

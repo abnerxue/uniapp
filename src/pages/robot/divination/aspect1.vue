@@ -35,6 +35,9 @@
       }
     },
     mounted () {
+      window.android.startSpeak("点击查看您想要问的方面。");
+      window.android.handDoAbsoluteAngleMotion(10,1,270);
+      window.android.setLED(0,25,1,7);
       this.obj = this.$route.params.obj;
     },
     methods: {

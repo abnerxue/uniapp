@@ -54,25 +54,27 @@
       }else if(this.side == '远行'){
         this.word = this.obj.yuanxing
       }
+      window.android.startSpeak(this.word);
+      window.android.handDoAbsoluteAngleMotion(10,1,0);
+      window.android.setLED(0,25,1,7);
       // 自动播放
       this.goNext()
-      
     },
     methods: {
       goNext () {
-        const TIME_COUNT = 5 // 自动播放秒数
+        const TIME_COUNT = 60 // 自动播放秒数
         if (!this.timer) {
           this.count = TIME_COUNT
-          this.show = false
-          this.timer = setInterval(() => {
+          this.timer = setInterval(() => { // 定时器
             if (this.count > 0 && this.count <= TIME_COUNT) {
-              this.count--
-            } else {
-              this.show = true
-              clearInterval(this.timer)
-              this.timer = null
-              // 跳转的页面写在此处
-              this.$router.push({ path: 'guide', params: { obj: this.obj} })
+              window.android.handDoAbsoluteAngleMotion(10,1,this.count);
+              if(window.android.isSpeaking()==1){
+                this.count--;
+              } else {
+                clearInterval(this.timer)
+                this.timer = null
+                this.$router.push({ path: 'guide', params: { obj: this.obj } })
+              }
             }
           }, 1000)
         }
@@ -85,6 +87,7 @@
       }
     },
     destroyed () {
+      window.android.stopSpeak();
       clearInterval(this.timer)
     }
   }

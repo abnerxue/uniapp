@@ -27,6 +27,8 @@
     },
     mounted () {
       this.obj = this.$route.params.obj;
+      window.android.handDoAbsoluteAngleMotion(10,1,270);
+      window.android.setLED(0,25,1,7);
       // 自动播放
       this.goNext()
       this.getDate()
@@ -35,20 +37,22 @@
       getDate () {
         var arr = this.obj.goods.split('\n');
         this.word = arr[1];
+        window.android.startSpeak(this.word);
       },
       goNext () {
-        const TIME_COUNT = 5
+        const TIME_COUNT = 60
         if (!this.timer) {
           this.count = TIME_COUNT
-          this.show = false
-          this.timer = setInterval(() => {
+          this.timer = setInterval(() => { // 定时器
             if (this.count > 0 && this.count <= TIME_COUNT) {
-              this.count--
-            } else {
-              this.show = true
-              clearInterval(this.timer)
-              this.timer = null
-              this.$router.push({ path: 'guideBuy', params: { obj: this.obj } })
+              window.android.handDoAbsoluteAngleMotion(10,1,this.count);
+              if(window.android.isSpeaking()==1){
+                this.count--;
+              } else {
+                clearInterval(this.timer)
+                this.timer = null
+                this.$router.push({ path: 'guideBuy', params: { obj: this.obj } })
+              }
             }
           }, 1000)
         }
@@ -61,6 +65,7 @@
       }
     },
     destroyed () {
+      window.android.stopSpeak();
       clearInterval(this.timer)
     }
   }
@@ -79,6 +84,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    overflow: hidden;
   }
   .box {
     position: absolute;
@@ -104,23 +110,23 @@
   }
   .buttonBox {
     width: 100%;
-    height: 100%;
+    height: 20%;
     position: absolute;
     padding: 0 11%;
     bottom: 1%;
   }
   .buttonBox p {
     position: absolute;
-    top:9.7rem;
-    left:-8.5rem;
+    top:-0.5rem;
+    left: -8.5rem;
     float: left;
-    width: 100%;
+    width: 50%;
     height: 100%;
     color: white;
     background: url(../../../static/img/z2.png) no-repeat;
   }
   .buttonBox p:nth-child(2) {
-    left:3.8rem;
+    left: 3.8rem;
     float: right;
     background: url(../../../static/img/z1.png) no-repeat;
   }
