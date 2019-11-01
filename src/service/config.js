@@ -1,6 +1,7 @@
 // const apiBaseUrl = 'http://localhost:1800'
 // const apiBaseUrl = 'http://test.api.szwft.me/'
-const apiBaseUrl = 'http://api.szwft.me/'
+//const apiBaseUrl = 'http://api.szwft.me/'
+const apiBaseUrl = 'http://47.103.129.40:9001/'
 const version = '1.9.821415'
 const isTenant = false
 
