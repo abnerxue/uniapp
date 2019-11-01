@@ -13,7 +13,6 @@
       <div class="slbox">
         <img src="../../../static/img/9_08.png" alt="">
         <p>{{obj.solution}}</p>
-        {{b}}
       </div>
       <div class="buttonBox">
         <p v-on:click="backIndex()"></p>
@@ -36,7 +35,7 @@
     mounted () {
       this.obj = this.$route.params.obj;
       window.android.startSpeak(this.obj.solution);
-      window.android.setLED(0,25,1,7);
+      window.android.setLED(0, 25, 1, 7);
       this.goNext();
     },
     methods: {
@@ -46,8 +45,8 @@
           this.count = TIME_COUNT
           this.timer = setInterval(() => { // 定时器
             if (this.count > 0 && this.count <= TIME_COUNT) {
-              window.android.handDoAbsoluteAngleMotion(10,1,this.count);
-              if(window.android.isSpeaking()==1){
+              window.android.handDoAbsoluteAngleMotion(10, 1, this.count);
+              if (window.android.isSpeaking() == 1) {
                 this.count--;
               } else {
                 clearInterval(this.timer)
