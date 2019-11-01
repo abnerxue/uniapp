@@ -4,7 +4,7 @@
  * @Author: 薛松田
  * @Date: 2019-10-28 10:13:54
  * @LastEditors: 薛松田
- * @LastEditTime: 2019-10-28 15:54:22
+ * @LastEditTime: 2019-10-31 18:49:34
  */
 import Vue from 'vue'
 import store from '@/service/store/index'
@@ -291,6 +291,10 @@ import xTimePicker from '@/elements/all/x-time-picker/index.vue'
 import xWidget from '@/elements/all/x-widget/index.vue'
 import auto from '@/elements/auto/index.vue'
 import xAuthorization from '@/elements/mp/x-authorization/index.vue'
+import global_ from './pages/global.vue'
+Vue.prototype.GLOBAL = global_ //挂载到Vue实例上面
+
+
 Vue.component('zk-account-security', zkAccountSecurity)
 Vue.component('zk-groupbuy', zkGroupbuy)
 Vue.component('zk-about', zkAbout)
