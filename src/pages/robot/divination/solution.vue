@@ -26,17 +26,24 @@
   export default {
     data () {
       return {
-        obj : {},
+        obj: {},
         count: '', // 倒计时
         timer: null, // 延时器
+      }
+    },
+    created () {
+      window.startSpeak = text => {
+        this.startSpeak(text);
       }
     },
     mounted () {
       this.obj = this.$route.params.obj;
       this.goNext();
-      
     },
     methods: {
+      startSpeak (text) {
+        text = this.obj.solution;
+      },
       goNext () { // 自动跳转到下一个页面
         const TIME_COUNT = 5
         if (!this.timer) {
@@ -47,7 +54,7 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'solution1', params: { obj : this.obj} })
+              this.$router.push({ path: 'solution1', params: { obj: this.obj } })
             }
           }, 1000)
         }
@@ -73,7 +80,7 @@
     background: url(../../../static/img/9back.jpg);
     background-size: 100% 100%;
   }
-  
+
   .box {
     position: absolute;
     top: 0;
@@ -104,16 +111,16 @@
   }
   .slbox img {
     position: absolute;
-    top:-0.5rem;
-    left:1rem;
+    top: -0.5rem;
+    left: 1rem;
     width: 8rem;
     height: 5rem;
     float: left;
   }
   .slbox p {
     position: absolute;
-    top:0rem;
-    left:9.5rem;
+    top: 0rem;
+    left: 9.5rem;
     float: left;
     width: 9rem;
     font-size: 0.5rem;

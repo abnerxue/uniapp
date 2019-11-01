@@ -41,26 +41,26 @@
     methods: {
       getDate () {
         var vm = this;
-        this.$api.httpGet ('/findLabel', '').then(function(res){
+        this.$api.httpGet('/findLabel', '').then(function (res) {
           console.log(res)
           vm.obj = {
-            number : res.label.label_num,
-            id : res.label.id,
-            no : res.label.label_no,
-            poetry : res.label.label_content,
-            solution : res.label.label_jie_1,
-            solution1 : res.label.label_jie_2,
-            caili : res.label.label_type_caili,
-            fangdi : res.label.label_type_fangdi,
-            huiyin : res.label.label_type_hunyin,
-            jiankang : res.label.label_type_kaoshi,
-            kaoshi : res.label.label_type_kaoshi,
-            shiwu : res.label.label_type_shiwu,
-            susong : res.label.label_type_susong,
-            yuanxing : res.label.label_type_yuanxing,
-            goods : res.labelType.goods
+            number: res.label.label_num,
+            id: res.label.id,
+            no: res.label.label_no,
+            poetry: res.label.label_content,
+            solution: res.label.label_jie_1,
+            solution1: res.label.label_jie_2,
+            caili: res.label.label_type_caili,
+            fangdi: res.label.label_type_fangdi,
+            huiyin: res.label.label_type_hunyin,
+            jiankang: res.label.label_type_kaoshi,
+            kaoshi: res.label.label_type_kaoshi,
+            shiwu: res.label.label_type_shiwu,
+            susong: res.label.label_type_susong,
+            yuanxing: res.label.label_type_yuanxing,
+            goods: res.labelType.goods
           }
-          console.log(vm.obj)          
+          console.log(vm.obj)
         });
       },
       goNext () { // 自动跳转到下一个页面
@@ -73,7 +73,7 @@
             } else {
               clearInterval(this.timer)
               this.timer = null
-              this.$router.push({ path: 'solution', params: { obj : this.obj} })
+              this.$router.push({ path: 'solution', params: { obj: this.obj } })
             }
           }, 1000)
         }
